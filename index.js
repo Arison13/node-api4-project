@@ -26,6 +26,16 @@ server.post('/api/register',(req, res) =>{
     }
 })
 
+server.post('/api/login',(req, res) =>{
+    if(!req.body.username) {
+        res.status(500).json({
+            message: 'You need to register!'
+        })
+    }else {
+        res.json(`Welcome back ${req.body.username}`)
+    }
+})
+
 
 server.listen (PORT, ()=> {
     console.log(`listening on port ${PORT}`)
