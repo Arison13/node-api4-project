@@ -15,6 +15,16 @@ server.get('/api/users', (req,res)=> {
 
     ])
 })
+server.post('/api/register',(req, res) =>{
+    const { username } = req.body;
+    if(!username) {
+        res.status(500).json({
+            message: 'Register to access this endpoint'
+        })
+    }else {
+        res.json(`username ${username} created`)
+    }
+})
 
 
 server.listen (PORT, ()=> {
